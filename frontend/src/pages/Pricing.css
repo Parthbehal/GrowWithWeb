@@ -1,0 +1,201 @@
+.pricing-hero { position: relative; overflow: hidden; }
+.pricing-hero__orb {
+  position: absolute;
+  top: -60px; right: -80px;
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse, rgba(168,85,247,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* Plans */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.pricing-card {
+  padding: 32px 28px;
+  position: relative;
+}
+
+.pricing-card--highlight {
+  border-color: var(--neon-green);
+  background: linear-gradient(160deg, rgba(0,240,160,0.04), var(--bg-card));
+  box-shadow: 0 0 0 1px var(--neon-green), 0 24px 60px rgba(0,240,160,0.08);
+  transform: translateY(-8px);
+}
+
+.pricing-card__popular {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--neon-green);
+  color: #030308;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.pricing-card__icon {
+  font-size: 36px;
+  margin-bottom: 14px;
+}
+
+.pricing-card__name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.pricing-card__tagline {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.pricing-card__price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.pricing-card__price-label {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--neon-green);
+}
+
+.pricing-card__price-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.pricing-divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 20px;
+}
+
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pricing-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.pricing-feature svg { flex-shrink: 0; margin-top: 1px; }
+
+.pricing-feature--included { color: var(--text-secondary); }
+.pricing-feature--excluded { color: var(--text-muted); }
+.pricing-feature--excluded svg { opacity: 0.4; }
+
+.pricing-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 16px 20px;
+  background: rgba(0,240,160,0.04);
+  border: 1px solid rgba(0,240,160,0.12);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.pricing-note svg { color: var(--neon-green); flex-shrink: 0; }
+
+/* Add-ons */
+.pricing-addons { background: var(--bg-secondary); }
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.addon-card { padding: 24px; }
+.addon-icon { font-size: 28px; display: block; margin-bottom: 12px; }
+.addon-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.addon-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+/* FAQ */
+.pricing-faq-inner { max-width: 760px; }
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-item:first-child { border-top: 1px solid var(--border); }
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 4px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.faq-item--open .faq-question { color: var(--neon-green); }
+
+.faq-chevron { flex-shrink: 0; transition: transform 0.3s ease; color: var(--text-muted); }
+
+.faq-answer {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  padding: 0 4px 20px;
+  animation: fadeUp 0.2s ease;
+}
+
+/* CTA */
+.pricing-cta { background: var(--bg-secondary); position: relative; overflow: hidden; }
+.pricing-cta-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(0,240,160,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pricing-cta-inner { position: relative; z-index: 1; max-width: 560px; }
+
+@media (max-width: 900px) {
+  .pricing-grid { grid-template-columns: 1fr; gap: 28px; }
+  .pricing-card--highlight { transform: none; }
+  .addons-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .addons-grid { grid-template-columns: 1fr; }
+}
